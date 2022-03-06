@@ -1,2 +1,2 @@
 # popcat
-Automate click popcat with serinium
+Automate click popcat with serenium
