@@ -16,18 +16,20 @@ namespace Pop.Cat
 
                 var cat = driver.FindElementByClassName("cat-img");
 
-                for (var i = 0; i < 1000; i++)
+                while (true)
                 {
                     cat.Click();
-                    Thread.Sleep(200);
+                    Thread.Sleep(50);
                 }
             }
             catch (Exception ex)
             {
                 Console.WriteLine(ex.Message);
             }
-
-            driver.Close();
+            finally
+            {
+                driver.Close();
+            }
         }
     }
 }
