@@ -4,7 +4,7 @@ on:
   workflow_dispatch: 
 
 jobs:
-  build:
+  publish:
 
     runs-on: ubuntu-latest
 
@@ -19,7 +19,7 @@ jobs:
     - name: Build
       run: dotnet build --no-restore
     - name: Publish
-      run: dotnet publish -c Release -r linux-arm64 -p:PublishReadyToRun=true -o ./
+      run: dotnet publish -c Release -r linux-arm64 --self-contained -p:PublishReadyToRun=true -o ./
     - name: Upload artifact
       uses: actions/upload-artifact@v3
       with:
