@@ -1,3 +1,3 @@
 # popcat
 
-Automatically click popcat with Serenium in .Net 6
+Automatically click popcat with Serenium in .NET 6
