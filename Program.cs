@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Threading;
-using OpenQA.Selenium.Chrome;
+using OpenQA.Selenium;
+using OpenQA.Selenium.Edge;
 
 namespace Pop.Cat
 {
@@ -8,13 +9,18 @@ namespace Pop.Cat
     {
         static void Main(string[] args)
         {
-            var driver = new ChromeDriver();
+            var driver = new EdgeDriver();
+
+            if (driver == null)
+            {
+                return;
+            }
 
             try
             {
                 driver.Navigate().GoToUrl("https://popcat.click/");
 
-                var cat = driver.FindElementByClassName("cat-img");
+                var cat = driver.FindElement(By.ClassName("cat-img"));
 
                 while (true)
                 {
