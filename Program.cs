@@ -3,18 +3,13 @@ using System.Threading;
 using OpenQA.Selenium;
 using OpenQA.Selenium.Edge;
 
-namespace Pop.Cat
+namespace PopCat
 {
-    class Program
+    public static class Program
     {
-        static void Main(string[] args)
+        public static void Main(string[] args)
         {
             var driver = new EdgeDriver();
-
-            if (driver == null)
-            {
-                return;
-            }
 
             try
             {
