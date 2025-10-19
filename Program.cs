@@ -3,34 +3,34 @@ using System.Threading;
 using OpenQA.Selenium;
 using OpenQA.Selenium.Edge;
 
-namespace PopCat
+namespace PopCat;
+
+public static class Program
 {
-    public static class Program
+    public static void Main(string[] args)
     {
-        public static void Main(string[] args)
+        var driver = new EdgeDriver();
+
+        try
         {
-            var driver = new EdgeDriver();
+            driver.Navigate().GoToUrl("https://popcat.click/");
 
-            try
-            {
-                driver.Navigate().GoToUrl("https://popcat.click/");
+            var cat = driver.FindElement(By.ClassName("cat-img"));
 
-                var cat = driver.FindElement(By.ClassName("cat-img"));
-
-                while (true)
-                {
-                    cat.Click();
-                    Thread.Sleep(50);
-                }
-            }
-            catch (Exception ex)
+            while (true)
             {
-                Console.WriteLine(ex.Message);
+                cat.Click();
+                Thread.Sleep(50);
             }
-            finally
-            {
-                driver.Close();
-            }
+        }
+        catch (Exception ex)
+        {
+            Console.WriteLine(ex.Message);
+        }
+        finally
+        {
+            driver.Close();
         }
     }
 }
+
